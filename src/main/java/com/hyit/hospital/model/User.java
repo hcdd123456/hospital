@@ -8,4 +8,8 @@ public class User {
 
     private String a;
 
+    private Integer aa;
+
+    private String b;
+
 }
