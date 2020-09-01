@@ -13,6 +13,17 @@ public class Department {
 
     private Integer delmark;
 
+    //一对一关联
+    private Constantitem constantitem;
+
+    public Constantitem getConstantitem() {
+        return constantitem;
+    }
+
+    public void setConstantitem(Constantitem constantitem) {
+        this.constantitem = constantitem;
+    }
+
     public Integer getId() {
         return id;
     }

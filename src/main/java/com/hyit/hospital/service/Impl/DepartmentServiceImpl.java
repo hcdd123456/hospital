@@ -1,5 +1,8 @@
 package com.hyit.hospital.service.Impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.hyit.hospital.common.Common;
 import com.hyit.hospital.mapper.DepartmentMapper;
 import com.hyit.hospital.model.Department;
 import com.hyit.hospital.service.DepartmentService;
@@ -23,4 +26,16 @@ public class DepartmentServiceImpl implements DepartmentService {
     public List<Department> selAll() {
         return departmentMapper.selectAll();
     }
+
+    @Override
+    public PageInfo<Department> selectAll(Integer currPage, Department department) {
+        if (currPage == null){
+            currPage = 1;
+        }
+        PageHelper.startPage(currPage, Common.PAGE_SIZE);
+        PageInfo pageInfo = new PageInfo(departmentMapper.selAll(department));
+        return pageInfo;
+    }
+
+
 }

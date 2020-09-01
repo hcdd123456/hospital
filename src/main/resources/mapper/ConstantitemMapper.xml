@@ -31,9 +31,15 @@
     from constantitem
     where ID = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" resultMap="BaseResultMap">
+  <select id="selByUserDocTitleID" resultMap="BaseResultMap">
     select ID, ConstantTypeID, ConstantCode, ConstantName, DelMark
     from constantitem
     limit 28,4
+  </select>
+
+  <select id="selByDeptcategoryid" resultMap="BaseResultMap">
+    select ID, ConstantTypeID, ConstantCode, ConstantName, DelMark
+    from constantitem
+    limit 0,18
   </select>
 </mapper>

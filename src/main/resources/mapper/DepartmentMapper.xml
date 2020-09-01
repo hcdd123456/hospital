@@ -8,6 +8,13 @@
     <result column="DeptCategoryID" jdbcType="INTEGER" property="deptcategoryid" />
     <result column="DeptType" jdbcType="INTEGER" property="depttype" />
     <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+    <association property="constantitem" column="DeptCategoryID" javaType="com.hyit.hospital.model.Constantitem">
+      <id column="cid" jdbcType="INTEGER" property="id" />
+      <result column="ConstantTypeID" jdbcType="INTEGER" property="constanttypeid" />
+      <result column="ConstantCode" jdbcType="VARCHAR" property="constantcode" />
+      <result column="ConstantName" jdbcType="VARCHAR" property="constantname" />
+      <result column="DelMark" jdbcType="INTEGER" property="delmark" />
+    </association>
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from department
@@ -39,4 +46,16 @@
     select ID, DeptCode, DeptName, DeptCategoryID, DeptType, DelMark
     from department
   </select>
+  <select id="selAll" parameterType="com.hyit.hospital.model.Department" resultMap="BaseResultMap">
+    select d.ID, d.DeptCode, d.DeptName, d.DeptCategoryID, d.DeptType, d.DelMark,
+    c.ID cid, c.ConstantTypeID, c.ConstantCode, c.ConstantName, c.DelMark
+    from department d
+    inner join constantitem c on d.DeptCategoryID = c.ID
+    <where>
+      <if test="id != null and id != ''">
+        u.ID = #{id}
+      </if>
+    </where>
+  </select>
+
 </mapper>

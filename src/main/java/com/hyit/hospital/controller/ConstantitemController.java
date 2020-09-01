@@ -20,9 +20,17 @@ public class ConstantitemController {
     @Autowired
     private ConstantitemService constantitemService;
 
-    @RequestMapping("selAll")
-    public ResultVO selAll(){
-        ResultVO resultVO = new ResultVO("成功",200,constantitemService.selAll());
+    //用户表
+    @RequestMapping("selByUserDocTitleID")
+    public ResultVO selByUserDocTitleID(){
+        ResultVO resultVO = new ResultVO("成功",200,constantitemService.selByUserDocTitleID());
+        return resultVO;
+    }
+
+    //科室表
+    @RequestMapping("selByDepartmentDeptcategoryid")
+    public ResultVO selByDepartmentDeptcategoryid(){
+        ResultVO resultVO = new ResultVO("成功",200,constantitemService.selByDeptcategoryid());
         return resultVO;
     }
 

@@ -1,5 +1,6 @@
 package com.hyit.hospital.service;
 
+import com.github.pagehelper.PageInfo;
 import com.hyit.hospital.model.Department;
 
 import java.util.List;
@@ -10,4 +11,6 @@ import java.util.List;
  */
 public interface DepartmentService {
     List<Department> selAll();
+
+    PageInfo<Department> selectAll(Integer currPage, com.hyit.hospital.model.Department department);
 }

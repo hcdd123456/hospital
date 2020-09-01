@@ -10,6 +10,7 @@ import java.util.List;
  */
 public interface ConstantitemService {
 
-    List<Constantitem> selAll();
+    List<Constantitem> selByUserDocTitleID();
 
+    List<Constantitem> selByDeptcategoryid();
 }

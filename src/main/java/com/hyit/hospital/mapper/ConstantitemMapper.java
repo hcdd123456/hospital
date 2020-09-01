@@ -10,7 +10,9 @@ public interface ConstantitemMapper {
 
     Constantitem selectByPrimaryKey(Integer id);
 
-    List<Constantitem> selectAll();
+    List<Constantitem> selByUserDocTitleID();
 
     int updateByPrimaryKey(Constantitem record);
+
+    List<Constantitem> selByDeptcategoryid();
 }

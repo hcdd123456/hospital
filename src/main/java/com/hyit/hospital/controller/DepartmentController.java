@@ -1,8 +1,12 @@
 package com.hyit.hospital.controller;
 
+import com.github.pagehelper.PageInfo;
+import com.hyit.hospital.model.Department;
 import com.hyit.hospital.service.DepartmentService;
 import com.hyit.hospital.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,10 +21,17 @@ public class DepartmentController {
     @Autowired
     private DepartmentService departmentService;
 
+    //用户管理外键查询所有
     @RequestMapping("selAll")
     public ResultVO selAll(){
         ResultVO resultVO = new ResultVO("",200,departmentService.selAll());
         return resultVO;
+    }
+
+    //查询列表
+    @RequestMapping("selectAll/{currPage}")
+    public PageInfo<Department> selectAll(@PathVariable Integer currPage, @RequestBody Department department){
+        return departmentService.selectAll(currPage,department);
     }
 
 }

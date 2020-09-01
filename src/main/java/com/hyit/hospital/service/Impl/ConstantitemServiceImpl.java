@@ -19,7 +19,12 @@ public class ConstantitemServiceImpl implements ConstantitemService {
     private ConstantitemMapper constantitemMapper;
 
     @Override
-    public List<Constantitem> selAll() {
-        return constantitemMapper.selectAll();
+    public List<Constantitem> selByUserDocTitleID() {
+        return constantitemMapper.selByUserDocTitleID();
+    }
+
+    @Override
+    public List<Constantitem> selByDeptcategoryid() {
+        return constantitemMapper.selByDeptcategoryid();
     }
 }
