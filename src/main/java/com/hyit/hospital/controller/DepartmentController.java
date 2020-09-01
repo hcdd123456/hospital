@@ -34,4 +34,31 @@ public class DepartmentController {
         return departmentService.selectAll(currPage,department);
     }
 
+    @RequestMapping("departmentAdd")
+    public ResultVO add(@RequestBody Department department){
+        departmentService.departmentAdd(department);
+        ResultVO resultVO = new ResultVO("",200);
+        return resultVO;
+    }
+
+    @RequestMapping("delById/{id}")
+    public ResultVO delById(@PathVariable Integer id){
+        departmentService.delById(id);
+        ResultVO resultVO = new ResultVO("",200);
+        return resultVO;
+    }
+
+    @RequestMapping("update")
+    public ResultVO update(@RequestBody Department department){
+        departmentService.update(department);
+        ResultVO resultVO = new ResultVO("",200);
+        return resultVO;
+    }
+
+    @RequestMapping("selById/{id}")
+    public ResultVO selById(@PathVariable Integer id){
+        ResultVO resultVO = new ResultVO("",200,departmentService.selById(id));
+        return resultVO;
+    }
+
 }

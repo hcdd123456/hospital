@@ -37,5 +37,25 @@ public class DepartmentServiceImpl implements DepartmentService {
         return pageInfo;
     }
 
+    @Override
+    public void departmentAdd(Department department) {
+        departmentMapper.insert(department);
+    }
+
+    @Override
+    public void delById(Integer id) {
+        departmentMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public void update(Department department) {
+        departmentMapper.updateByPrimaryKey(department);
+    }
+
+    @Override
+    public Department selById(Integer id) {
+        return departmentMapper.selectByPrimaryKey(id);
+    }
+
 
 }

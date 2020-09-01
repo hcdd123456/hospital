@@ -13,4 +13,12 @@ public interface DepartmentService {
     List<Department> selAll();
 
     PageInfo<Department> selectAll(Integer currPage, com.hyit.hospital.model.Department department);
+
+    void departmentAdd(Department department);
+
+    void delById(Integer id);
+
+    void update(Department department);
+
+    Department selById(Integer id);
 }
