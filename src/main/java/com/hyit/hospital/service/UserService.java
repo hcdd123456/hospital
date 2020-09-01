@@ -12,4 +12,5 @@ public interface UserService {
 
     PageInfo<User> selAll(Integer currPage,User user);
 
+    void userAdd(User user);
 }

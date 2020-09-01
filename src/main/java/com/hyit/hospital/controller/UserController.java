@@ -3,6 +3,7 @@ package com.hyit.hospital.controller;
 import com.github.pagehelper.PageInfo;
 import com.hyit.hospital.model.User;
 import com.hyit.hospital.service.UserService;
+import com.hyit.hospital.vo.ResultVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +24,14 @@ public class UserController {
     @RequestMapping("selAll/{currPage}")
     public PageInfo<User> selAll(@PathVariable Integer currPage, @RequestBody User user){
         return userService.selAll(currPage,user);
+    }
+
+    @RequestMapping("userAdd")
+    public ResultVO userAdd(@RequestBody User user){
+        System.out.println(user);
+        userService.userAdd(user);
+        ResultVO resultVO = new ResultVO("",200);
+        return resultVO;
     }
 
 }

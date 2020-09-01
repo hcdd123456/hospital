@@ -2,6 +2,7 @@ package com.hyit.hospital.service.Impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.hyit.hospital.common.Common;
 import com.hyit.hospital.mapper.UserMapper;
 import com.hyit.hospital.model.User;
 import com.hyit.hospital.service.UserService;
@@ -23,8 +24,13 @@ public class UserServiceImpl implements UserService {
         if (currPage == null){
             currPage = 1;
         }
-        PageHelper.startPage(currPage,10);
+        PageHelper.startPage(currPage, Common.PAGE_SIZE);
         PageInfo pageInfo = new PageInfo(userMapper.selAll(user));
         return pageInfo;
+    }
+
+    @Override
+    public void userAdd(User user) {
+        userMapper.insert(user);
     }
 }
