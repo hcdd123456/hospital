@@ -34,5 +34,6 @@
   <select id="selectAll" resultMap="BaseResultMap">
     select ID, ConstantTypeID, ConstantCode, ConstantName, DelMark
     from constantitem
+    limit 28,4
   </select>
 </mapper>
