@@ -33,4 +33,19 @@ public class UserServiceImpl implements UserService {
     public void userAdd(User user) {
         userMapper.insert(user);
     }
+
+    @Override
+    public void delById(Integer id) {
+        userMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public User selById(Integer id) {
+        return userMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void userUpdate(User user) {
+        userMapper.updateByPrimaryKey(user);
+    }
 }
