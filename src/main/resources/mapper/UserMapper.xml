@@ -89,6 +89,12 @@
       <if test="id != null and id != ''">
         u.ID = #{id}
       </if>
+      <if test="deptid != null and deptid != ''">
+        u.DeptID = #{deptid}
+      </if>
+      <if test="registleid != null and registleid != ''">
+        u.RegistLeID = #{registleid}
+      </if>
     </where>
   </select>
 

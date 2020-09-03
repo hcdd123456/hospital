@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
             map.put("status",0);
             return map;
         }else {
+            user.setDelmark(1);
             userMapper.insert(user);
             //添加用户成功
             map.put("status",1);

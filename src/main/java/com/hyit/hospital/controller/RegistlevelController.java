@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 /**
  * @author hc
  * @create 2020/9/1 0001 11:10
@@ -38,8 +40,9 @@ public class RegistlevelController {
     }
     @RequestMapping("delById/{id}")
     public ResultVO deById(@PathVariable Integer id){
-        registlevelService.delById(id);
-        ResultVO resultVO=new ResultVO("",200);
+        Map<String, Object> map = registlevelService.delById(id);
+        Integer status = (Integer) map.get("status");
+        ResultVO resultVO = new ResultVO("",status);
         return resultVO;
     }
     @RequestMapping("update")

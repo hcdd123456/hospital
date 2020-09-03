@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.hyit.hospital.model.Department;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author hc
@@ -16,9 +17,9 @@ public interface DepartmentService {
 
     void departmentAdd(Department department);
 
-    void delById(Integer id);
+    Map<String,Object> delById(Integer id);
 
-    void update(Department department);
+     void update(Department department);
 
     Department selById(Integer id);
 }

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.hyit.hospital.model.Registlevel;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author hc
@@ -15,7 +16,7 @@ public interface RegistlevelService {
 
     void registlevelAdd(Registlevel registlevel);
 
-    void delById(Integer id);
+    Map<String,Object> delById(Integer id);
 
     void update(Registlevel registlevel);
 
