@@ -1,5 +1,6 @@
 package com.hyit.hospital.service;
 
+import com.github.pagehelper.PageInfo;
 import com.hyit.hospital.model.Registlevel;
 
 import java.util.List;
@@ -10,4 +11,13 @@ import java.util.List;
  */
 public interface RegistlevelService {
     List<Registlevel> selAll();
+    PageInfo<Registlevel> selectAll(Integer currPage, Registlevel registlevel);
+
+    void registlevelAdd(Registlevel registlevel);
+
+    void delById(Integer id);
+
+    void update(Registlevel registlevel);
+
+    Registlevel selById(Integer id);
 }

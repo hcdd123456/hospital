@@ -13,4 +13,7 @@ public interface RegistlevelMapper {
     List<Registlevel> selectAll();
 
     int updateByPrimaryKey(Registlevel record);
+
+    List<Registlevel> selectAll(Registlevel registlevel);
+
 }
