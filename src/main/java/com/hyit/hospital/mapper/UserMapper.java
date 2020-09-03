@@ -16,4 +16,5 @@ public interface UserMapper {
 
     List<User> selAll(User user);
 
+    User login(String username);
 }

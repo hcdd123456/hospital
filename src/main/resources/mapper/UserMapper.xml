@@ -92,4 +92,13 @@
     </where>
   </select>
 
+  <select id="login" parameterType="java.lang.String" resultMap="BaseResultMap">
+     select u.ID, u.UserName, u.Password, u.RealName, u.UseType, u.DocTitleID, u.IsScheduling, u.DeptID,
+     u.RegistLeID, u.DelMark,
+     c.ID cid, c.ConstantTypeID, c.ConstantCode, c.ConstantName, c.DelMark
+    from user u
+    inner join constantitem c on u.DocTitleID = c.ID
+    where Username = #{username}
+  </select>
+
 </mapper>

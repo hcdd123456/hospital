@@ -1,6 +1,7 @@
 package com.hyit.hospital.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.hyit.hospital.model.LoginUser;
 import com.hyit.hospital.model.User;
 import com.hyit.hospital.service.UserService;
 import com.hyit.hospital.vo.ResultVO;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * @author hc
@@ -30,8 +33,9 @@ public class UserController {
     //用户新增
     @RequestMapping("userAdd")
     public ResultVO userAdd(@RequestBody User user){
-        userService.userAdd(user);
-        ResultVO resultVO = new ResultVO("",200);
+        Map<String, Object> map = userService.userAdd(user);
+        Integer status = (Integer) map.get("status");
+        ResultVO resultVO = new ResultVO("",status);
         return resultVO;
     }
 
@@ -55,6 +59,17 @@ public class UserController {
     public ResultVO userUpdate(@RequestBody User user){
         userService.userUpdate(user);
         ResultVO resultVO = new ResultVO("",200);
+        return resultVO;
+    }
+
+    //登录
+    @RequestMapping("login")
+    public ResultVO login(@RequestBody LoginUser loginUser){
+        //登录状态
+        Map<String, Object> map = userService.login(loginUser);
+        User user = (User) map.get("user");
+        Integer status = (Integer) map.get("status");
+        ResultVO resultVO = new ResultVO("",status,user);
         return resultVO;
     }
 
