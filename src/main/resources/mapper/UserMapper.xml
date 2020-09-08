@@ -83,7 +83,7 @@
     r.ID rid, r.RegistCode, r.RegistName, r.SequenceNo, r.RegistFee, r.RegistQuota, r.DelMark
     from user u
     inner join constantitem c on u.DocTitleID = c.ID
-    inner join department d on u.DeptID = d.ID
+    left join department d on u.DeptID = d.ID
     inner join registlevel r on u.RegistLeID = r.ID
     <where>
       <if test="id != null and id != ''">
